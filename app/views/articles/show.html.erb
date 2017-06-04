@@ -1,5 +1,18 @@
 <h2 align="center">Title: <%= @article.title %></h2>
 <div class="well col-xs-offset-2 col-xs-8">
+  <% if @article.user %>
+  <div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+      <div class="text-center">
+        <ul class="listing">
+          <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+          <li><%= link_to @article.user.username, user_path(@article.user) %></li>
+          <li><small><%= pluralize(@article.user.articles.count, "article") if !@article.user.articles.empty? %></small></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% end %>
   <h4 class="text-center description">Description:</h4>
   <hr>
   <%= simple_format(@article.description) %>
