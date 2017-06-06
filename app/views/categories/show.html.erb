@@ -1,7 +1,9 @@
 <h1 align="center"><%= @category.name %></h1>
 
 <div class="text-center">
-  <p><%= link_to "Edit category name", edit_category_path %></p>
+  <% if logged_in? && current_user.admin? %>
+    <p><%= link_to "Edit category name", edit_category_path %></p>
+  <% end %>
   <%= will_paginate @category_articles %>
 </div>
 
