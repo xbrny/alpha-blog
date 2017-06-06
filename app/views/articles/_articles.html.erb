@@ -7,6 +7,9 @@
       </div>
       <div class="article-body">
         <%= truncate(article.description, length: 100) %>
+        <% if article.categories.any? %>
+          <p><%= render article.categories %></p>
+        <% end %>
         <div class="article-meta">
           <small>
             Created by: <%= article.user.username if article.user %>

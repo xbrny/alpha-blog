@@ -1,0 +1,12 @@
+<h1 align="center"><%= @category.name %></h1>
+
+<div class="text-center">
+  <p><%= link_to "Edit category name", edit_category_path %></p>
+  <%= will_paginate @category_articles %>
+</div>
+
+<%= render "articles/articles", obj: @category_articles %>
+
+<div class="text-center">
+  <%= will_paginate @category_articles %>
+</div>
